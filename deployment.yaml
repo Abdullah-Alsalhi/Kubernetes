@@ -12,11 +12,11 @@ spec:
       labels:
         app: hello-world
       annotations: 
-        kubernetes.io/change-cause: "change to amigoscode/kubernetes:hello-world-v2"
+        kubernetes.io/change-cause: "change to amigoscode/kubernetes:hello-world"
     spec:
       containers:
       - name: hello-world
-        image: amigoscode/kubernetes:hello-world-v2
+        image: amigoscode/kubernetes:hello-world
         resources:
           limits:
             memory: "128Mi"

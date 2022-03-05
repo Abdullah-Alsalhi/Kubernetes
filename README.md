@@ -52,3 +52,39 @@ kubectl exec hello-world -- ps aux
 kubectl api-resources
 
 ```
+
+
+### ***When you rolling update a new version add this annotation for knowledge***
+
+```yaml
+
+annotations: 
+  kubernetes.io/change-cause: "change to amigoscode/kubernetes:hello-world"
+
+```
+
+# Notice
+
+***When you rolled update the previous replicaset remains as it is***
+
+```bash
+
+kubectl get rs
+
+```
+
+### ***To rollback you can use the replicaset for this purpose***
+
+```bash
+
+$ kubectl rollout history deployment hello-world
+$ kubectl rollout undo deployment hello-world --to-revision=1
+
+```
+### ***To see information about specifice version***
+
+```bash
+
+kubectl rollout history deployment hello-world --revision=2
+
+```
